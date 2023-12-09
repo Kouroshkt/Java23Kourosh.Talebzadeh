@@ -1,7 +1,7 @@
 import java.sql.*;
 import java.util.Scanner;
 
-public class Main {
+public class Jdbcsqlite {
     // text color
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31;1m";
@@ -212,7 +212,7 @@ public class Main {
         PreparedStatement pstmt = connection.prepareStatement(sql);
         pstmt.setInt(1, id);
         pstmt.executeUpdate();
-        System.out.println(ANSI_BLUE + "You have added a football player with ID: " + id + " som favorite" + ANSI_RESET);
+        System.out.println(ANSI_BLUE + "You have added a football player with ID: " + id + " as your favorite" + ANSI_RESET);
         connection.close();
     }
 
@@ -271,7 +271,8 @@ public class Main {
                 "\t4- Delete a team",
                 "\t5- Display the relations between tables",
                 "\t6- Show the number of teams in the table",
-                "\t7- Show all my favorites footballer",};
+                "\t7- Show all my favorites footballer"
+        };
         String[] footballer = {
                 " ",
                 " ",
@@ -302,16 +303,13 @@ public class Main {
                 case "2":
                     insertTeam("Manchester United", "Ole Gunnar Solskjær",
                             "Old Trafford", "Premier League", "England");
-                    selectTeam();
                     break;
                 case "3":
                     updateTeam(6, "Manchester United", "Mikel Arteta",
                             "New Trafford", "Premier League,UEFA", "England");
-                    selectTeam();
                     break;
                 case "4":
                     deleteTeam(6);
-                    selectTeam();
                     break;
                 case "5":
                     join();
@@ -328,23 +326,19 @@ public class Main {
                 case "9":
                     insertFootballer("Cristiano","Ronaldo",1985,
                             "Portuguese","Forward",700,3);
-                    selectFootballer();
                     break;
                 case "10":
                     updateFootballer(6, "Cristiano", "Ronaldo", 1985,
                             "Portuguese", "Centre mifield", 850, 3);
-                    selectFootballer();
                     break;
                 case "11":
                     deleteFootballer(6);
-                    selectFootballer();
                     break;
                 case "12":
                     searchFootballer("Zlatan");
                     break;
                 case "13":
                     addFavorite(4);
-                    selectFootballer();
                     break;
                 case "14":
                     System.out.println("The program ends");
